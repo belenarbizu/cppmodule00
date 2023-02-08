@@ -13,25 +13,21 @@
 
 int main(void)
 {
-    //PhoneBook   pb;
+    PhoneBook   pb;
     std::string str;
 
     std::cout << "Enter a new command: ";
-    std::cin >> str;
+    std::getline(std::cin, str);
     while (str != "EXIT")
     {
         if (str == "ADD")
-            std::cout << "ADD";
+            pb.add(str);
         else if (str == "SEARCH")
-            std::cout << "SEARCH";
-        else if (str.length() == 0)
-        {
-            std::cout << "Enter a new command: ";
-            std::cin >> str;
-        }
+            std::cout << "SEARCH" << std::endl;
         else
-            std::cout << "Command not found. Try again: ";
-        std::cin >> str;
+            std::cout << "Command not found" << std::endl;
+	std::cout << "Enter a new command: ";
+	std::cin >> str;
     }
     return (0);
 }

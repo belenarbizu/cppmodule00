@@ -19,7 +19,12 @@
 class   PhoneBook {
 
 private:
-    //Contact contacts[8];
+    Contact _contacts[8];
+public:
+    Phonebook();
+    ~PhoneBook();
+
+    void    add(std::string str);
 };
 
 #endif
