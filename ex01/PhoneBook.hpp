@@ -20,11 +20,13 @@ class   PhoneBook {
 
 private:
     Contact _contacts[8];
+    int     index;
 public:
     Phonebook();
     ~PhoneBook();
 
     void    add(std::string str);
+    void    search();
 };
 
 #endif

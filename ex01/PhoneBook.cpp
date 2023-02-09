@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(/* args */)
+PhoneBook::PhoneBook()
 {
+    index = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -22,4 +23,5 @@ PhoneBook::~PhoneBook()
 void    PhoneBook::add(std::string str)
 {
     std::cout << "First name: " << std::endl;
+    std::cin >> _contacts[index].set_fname(str);
 }
