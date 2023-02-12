@@ -21,9 +21,9 @@ int main(void)
     while (str != "EXIT")
     {
         if (str == "ADD")
-            pb.add(str);
+            pb.add();
         else if (str == "SEARCH")
-            std::cout << "SEARCH" << std::endl;
+            pb.search();
         else
             std::cout << "Command not found" << std::endl;
 	std::cout << "Enter a new command: ";

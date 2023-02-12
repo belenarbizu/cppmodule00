@@ -22,10 +22,10 @@ private:
     Contact _contacts[8];
     int     index;
 public:
-    Phonebook();
+    PhoneBook();
     ~PhoneBook();
 
-    void    add(std::string str);
+    void    add(void);
     void    search();
 };
 
