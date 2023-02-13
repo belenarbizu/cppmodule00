@@ -15,18 +15,20 @@
 
 #include "Contact.hpp"
 #include <iostream>
+#include <iomanip>
 
 class   PhoneBook {
 
 private:
     Contact _contacts[8];
     int     index;
+    int     is_wrong(int c);
 public:
     PhoneBook();
     ~PhoneBook();
 
     void    add(void);
-    void    search();
+    void    search(void);
 };
 
 #endif
