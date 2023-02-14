@@ -22,7 +22,9 @@ class   PhoneBook {
 private:
     Contact _contacts[8];
     int     index;
+    int     n_cont;
     int     is_wrong(int c);
+    void    display_info(std::string c);
 public:
     PhoneBook();
     ~PhoneBook();
