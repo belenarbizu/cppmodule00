@@ -27,12 +27,12 @@ int main(void)
         else if (str.empty())
         {
             std::cout << "Enter a new command: ";
-	        std::getline(std::cin, str);
+            std::getline(std::cin, str);
         }
         else
             std::cout << "Command not found" << std::endl;
-	std::cout << "Enter a new command: ";
-    std::getline(std::cin, str);
+	    std::cout << "Enter a new command: ";
+        std::getline(std::cin, str);
     }
     return (0);
 }
