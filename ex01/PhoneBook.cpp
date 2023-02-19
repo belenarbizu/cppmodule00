@@ -25,32 +25,55 @@ void    PhoneBook::add(void)
 	std::string s;
 
     std::cout << "First name: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
+    while (s.empty())
+    {
+        std::cout << "First name: ";
+        std::getline(std::cin, s);
+    }
     _contacts[index].set_fname(s);
     std::cout << "Last name: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
+    while (s.empty())
+    {
+        std::cout << "Last name: ";
+        std::getline(std::cin, s);
+    }
     _contacts[index].set_lname(s);
     std::cout << "Nickname: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
+    while (s.empty())
+    {
+        std::cout << "Nickname: ";
+        std::getline(std::cin, s);
+    }
     _contacts[index].set_nname(s);
     std::cout << "Phone number: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
+    while (s.empty())
+    {
+        std::cout << "Phone number: ";
+        std::getline(std::cin, s);
+    }
     _contacts[index].set_phone(s);
     std::cout << "Darkest secret: ";
-    std::cin >> s;
+    std::getline(std::cin, s);
+    while (s.empty())
+    {
+        std::cout << "Darkest secret: ";
+        std::getline(std::cin, s);
+    }
     _contacts[index].set_secret(s);
 }
 
 void	PhoneBook::search(void)
 {
-	std::cout << "1. First Name: ";
-	std::cout << _contacts[index].get_fname() << std::endl;
-    std::cout << "1. Last Name: ";
-	std::cout << _contacts[index].get_lname() << std::endl;
-    std::cout << "1. Nickname: ";
-	std::cout << _contacts[index].get_nname() << std::endl;
-    std::cout << "1. Phone number: ";
-	std::cout << _contacts[index].get_phone() << std::endl;
-    std::cout << "1. Darkest secret: ";
-	std::cout << _contacts[index].get_secret() << std::endl;
+	std::cout << "|-------------------------------------------|" << std::endl;
+    std::cout << "|     Index|First Name| Last name|  Nickname|" << std::endl;
+    std::cout << "|----------|----------|----------|----------|" << std::endl;
+    std::cout << "|" << std::setw(10) << index;
+    std::cout << "|" << std::setw(10) << _contacts[index].get_fname();
+    std::cout << "|" << std::setw(10) << _contacts[index].get_lname();
+    std::cout << "|" << std::setw(10) << _contacts[index].get_nname() << "|" << std::endl;
+    std::cout << "|-------------------------------------------|" << std::endl;
 }

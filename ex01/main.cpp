@@ -24,10 +24,15 @@ int main(void)
             pb.add();
         else if (str == "SEARCH")
             pb.search();
+        else if (str.empty())
+        {
+            std::cout << "Enter a new command: ";
+	        std::getline(std::cin, str);
+        }
         else
             std::cout << "Command not found" << std::endl;
 	std::cout << "Enter a new command: ";
-	std::cin >> str;
+    std::getline(std::cin, str);
     }
     return (0);
 }
