@@ -21,6 +21,22 @@ PhoneBook::~PhoneBook()
 {
 }
 
+int PhoneBook::correct_num(std::string s)
+{
+    int i;
+    int flag;
+
+    i = 0;
+    flag = 1;
+    while (s[i])
+    {
+        if (!std::isdigit(s[i]))
+            flag = 0;
+        i++;
+    }
+    return (flag);
+}
+
 void    PhoneBook::add(void)
 {
 	std::string s;
@@ -51,6 +67,8 @@ void    PhoneBook::add(void)
     {
         std::cout << "Phone number: ";
         std::getline(std::cin, s);
+        if (!correct_num(s))
+            s = "";
     }
     this->_contacts[this->index % 8].set_phone(s);
     s = "";
@@ -78,49 +96,56 @@ void	PhoneBook::search(void)
     std::string c;
     std::string sub;
 
-    std::cout << "|-------------------------------------------|" << std::endl;
-    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-    for (int i = 0; i < std::min(index, n_cont); i++)
+    if (index == 0)
     {
-        std::cout << "|" << std::setw(10) << i + 1;
-        if (_contacts[i].get_fname().length() > 10)
-        {
-            sub = _contacts[i].get_fname().substr(0, 9) + ".";
-            std::cout << "|" << std::setw(10) << sub;
-        }
-        else
-            std::cout << "|" << std::setw(10) << _contacts[i].get_fname();
-        if (_contacts[i].get_lname().length() > 10)
-        {
-            sub = _contacts[i].get_lname().substr(0, 9) + ".";
-            std::cout << "|" << std::setw(10) << sub;
-        }
-        else
-            std::cout << "|" << std::setw(10) << _contacts[i].get_lname();
-        if (_contacts[i].get_nname().length() > 10)
-        {
-            sub = _contacts[i].get_nname().substr(0, 9) + ".";
-            std::cout << "|" << std::setw(10) << sub << "|" << std::endl;
-        }
-        else
-            std::cout << "|" << std::setw(10) << _contacts[i].get_nname() << "|" << std::endl;
+        std::cout << "Phonebook is empty" << std::endl;
     }
-    std::cout << "|-------------------------------------------|" << std::endl;
-    display_info(c);
+    else
+    {
+        std::cout << "|-------------------------------------------|" << std::endl;
+        std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+        for (int i = 0; i < std::min(index, n_cont); i++)
+        {
+            std::cout << "|" << std::setw(10) << i + 1;
+            if (_contacts[i].get_fname().length() > 10)
+            {
+                sub = _contacts[i].get_fname().substr(0, 9) + ".";
+                std::cout << "|" << std::setw(10) << sub;
+            }
+            else
+                std::cout << "|" << std::setw(10) << _contacts[i].get_fname();
+            if (_contacts[i].get_lname().length() > 10)
+            {
+                sub = _contacts[i].get_lname().substr(0, 9) + ".";
+                std::cout << "|" << std::setw(10) << sub;
+            }
+            else
+                std::cout << "|" << std::setw(10) << _contacts[i].get_lname();
+            if (_contacts[i].get_nname().length() > 10)
+            {
+                sub = _contacts[i].get_nname().substr(0, 9) + ".";
+                std::cout << "|" << std::setw(10) << sub << "|" << std::endl;
+            }
+            else
+                std::cout << "|" << std::setw(10) << _contacts[i].get_nname() << "|" << std::endl;
+        }
+        std::cout << "|-------------------------------------------|" << std::endl;
+        display_info(c);
+    }
 }
 
 void    PhoneBook::display_info(std::string c)
 {
     std::cout << "Enter index to display information: ";
     std::getline(std::cin, c);
-    while (c.empty() || !is_wrong(std::stoi(c)))
+    while (c.empty() || !is_wrong(std::atoi(c.c_str())))
     {
         std::cout << "Enter index to display information: ";
         std::getline(std::cin, c);
     }
-    std::cout << "First Name: " << _contacts[std::stoi(c) - 1].get_fname() << std::endl;
-    std::cout << "Last Name: " << _contacts[std::stoi(c) - 1].get_lname() << std::endl;
-    std::cout << "Nickname: " << _contacts[std::stoi(c) - 1].get_nname() << std::endl;
-    std::cout << "Phone number: " << _contacts[std::stoi(c) - 1].get_phone() << std::endl;
-    std::cout << "Darkest secret: " << _contacts[std::stoi(c) - 1].get_secret() << std::endl;
+    std::cout << "First Name: " << _contacts[std::atoi(c.c_str()) - 1].get_fname() << std::endl;
+    std::cout << "Last Name: " << _contacts[std::atoi(c.c_str()) - 1].get_lname() << std::endl;
+    std::cout << "Nickname: " << _contacts[std::atoi(c.c_str()) - 1].get_nname() << std::endl;
+    std::cout << "Phone number: " << _contacts[std::atoi(c.c_str()) - 1].get_phone() << std::endl;
+    std::cout << "Darkest secret: " << _contacts[std::atoi(c.c_str()) - 1].get_secret() << std::endl;
 }

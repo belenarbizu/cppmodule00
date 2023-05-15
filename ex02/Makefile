@@ -5,16 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: barbizu- <barbizu-@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/27 13:24:32 by barbizu-          #+#    #+#              #
-#    Updated: 2023/02/21 13:18:25 by barbizu-         ###   ########.fr        #
+#    Created: 2023/05/15 10:42:38 by barbizu-          #+#    #+#              #
+#    Updated: 2023/05/15 10:42:41 by barbizu-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-NAME = phonebook
+NAME = account
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

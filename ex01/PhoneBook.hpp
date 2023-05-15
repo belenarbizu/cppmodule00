@@ -16,6 +16,7 @@
 #include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
+#include <cctype>
 
 class   PhoneBook {
 
@@ -25,6 +26,7 @@ private:
     int     n_cont;
     int     is_wrong(int c);
     void    display_info(std::string c);
+    int     correct_num(std::string s);
 public:
     PhoneBook();
     ~PhoneBook();
